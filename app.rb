@@ -40,7 +40,11 @@ Cuba.define do
 
     on "lookup-student", param("student-id") do |id|
       student = db.run(:find_student, student_id: id.to_i).first
-      res.write(view("lookup-student", grade: student["grade"]))
+      if student
+        res.write(view("lookup-student", grade: student["grade"]))
+      else
+        res.redirect("/")
+      end
     end
 
     on 'admin/add-student', param('name'), param('hour'), param('student-id') do |name, hour, student_id|
