@@ -45,7 +45,7 @@ Cuba.define do
 
     on 'admin/add-student', param('name'), param('hour'), param('student-id') do |name, hour, student_id|
       result = db.run(:add_student, name: name, hour: hour, student_id: student_id)
-      res.redirect("/admin")
+      res.redirect("/admin/add-student")
     end
 
     on 'admin/enter-grades' do
