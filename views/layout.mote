@@ -7,8 +7,8 @@
         <title>Grades</title>
     </head>
     <body>
-        <div class="container">
-            {{ content }}
-        </div>
+      <div class="container">
+        {{ content }}
+      </div>
     </body>
 </html>

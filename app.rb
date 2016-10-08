@@ -40,11 +40,11 @@ Cuba.define do
 
     on "lookup-student", param("student-id") do |id|
       student = db.run(:find_student, student_id: id.to_i).first
-      res.write("grade: #{student["grade"]}")
+      res.write(view("lookup-student", grade: student["grade"]))
     end
 
     on 'admin/add-student', param('name'), param('hour'), param('student-id') do |name, hour, student_id|
-      result = db.run(:add_student, name: name, hour: hour, student_id: student_id)
+      db.run(:add_student, name: name, hour: hour, student_id: student_id)
       res.redirect("/admin/add-student")
     end
 
@@ -82,7 +82,7 @@ Cuba.define do
   end
 
   on default do
-    res.write(view("index", name: "CJ"))
+    res.write(view("index"))
   end
 
 end
