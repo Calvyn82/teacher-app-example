@@ -1,0 +1,13 @@
+<form action="/admin/enter-grades" method="POST">
+% students.group_by { |s| s["hour"] }.sort_by(&:first).each do |hour, hour_students|
+<h2>{{hour}}</h2>
+% hour_students.sort_by { |s| s["name"] }.each do |student|
+    <div class="form-group">
+        <label>{{student["name"]}} ({{student["student_id"]}})</label>
+        <input type="text" name="student[{{student["student_id"]}}]" value="{{student["grade"]}}">
+    </div>
+% end
+% end
+
+    <input type="submit">
+</form>

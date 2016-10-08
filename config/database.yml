@@ -1,0 +1,7 @@
+---
+development:
+  :dbname: 'teacher_portal_dev'
+test:
+  :dbname: ''
+production:
+  :dbname: ''

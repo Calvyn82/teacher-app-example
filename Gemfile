@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+ruby '2.3.1'
+
+gem 'cuba', '~> 3.7.0'
+gem 'mote'
+gem 'mote-render'
+gem 'shotgun'
+gem 'basica'
+gem 'nomadize'
+gem 'sql_capsule'

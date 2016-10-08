@@ -1,0 +1,9 @@
+---
+:up: 'CREATE TABLE students(
+       id   SERIAL,
+       name VARCHAR(100),
+       hour VARCHAR(1),
+       student_id VARCHAR(10) UNIQUE,
+       grade VARCHAR(3)
+     );'
+:down: 'DROP TABLE students;'
