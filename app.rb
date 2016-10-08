@@ -76,7 +76,7 @@ Cuba.define do
 
     on default do
       auth(env, res) do
-        res.write("Authenticated")
+        res.write(view("admin"))
       end
     end
   end
