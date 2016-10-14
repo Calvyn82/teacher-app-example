@@ -2,4 +2,5 @@
 <ul>
   <li><a href="/admin/add-student">Add Student</a></li>
   <li><a href="/admin/enter-grades">Enter Grades</a></li>
+  <li><a href="admin/delete-students">Delete Students</a></li>
 </ul>

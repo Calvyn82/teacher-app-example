@@ -10,6 +10,7 @@ db.register(:add_student, "INSERT INTO students (name, hour, student_id) VALUES 
 db.register(:find_student, "SELECT * FROM students WHERE student_id = $1;", :student_id)
 db.register(:find_all_students, "SELECT * FROM students;")
 db.register(:update_student_grade, "UPDATE students SET grade = $1 WHERE student_id = $2 RETURNING student_id;", :grade, :student_id)
+db.register(:delete_student, "DELETE FROM students WHERE student_id = $1;", :student_id)
 
 Cuba.plugin(Mote::Render)
 Cuba.plugin(Basica)
@@ -75,6 +76,21 @@ Cuba.define do
       auth(env, res) do
         students = db.run(:find_all_students)
         res.write(view("enter-grades", students: students))
+      end
+    end
+
+    on 'delete-students/:id' do |id|
+      auth(env, res) do
+        db.run(:delete_student, student_id: id)
+        res.redirect("/admin/delete-students")
+      end
+    end
+
+
+    on 'delete-students' do
+      auth(env, res) do
+        students = db.run(:find_all_students)
+        res.write(view("delete-students", students: students))
       end
     end
 
